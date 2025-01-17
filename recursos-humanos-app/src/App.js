@@ -1,8 +1,10 @@
 import ListadosEmpleados from "./empleados/ListadosEmpleados";
+import Navegacion from "./plantillas/Navegacion";
 
 function App() {
   return (
-    <div className="container  text-center">
+    <div className="container">
+      <Navegacion></Navegacion>
      <ListadosEmpleados></ListadosEmpleados>
     </div>
   
