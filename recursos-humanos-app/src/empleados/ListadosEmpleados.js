@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { NumericFormat } from 'react-number-format';
-import Navegacion from '../plantillas/Navegacion';
+import { Link } from 'react-router-dom';
 
 export default function ListadosEmpleados() {
 
@@ -38,10 +38,10 @@ export default function ListadosEmpleados() {
                         <th scope="col">Apellido</th>
                         <th scope="col">Departamento</th>
                         <th scope="col">Sueldo</th>
+                        <th scope='col'>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                   
                    
                     {
                         //iteramos el arrgelo
@@ -55,6 +55,11 @@ export default function ListadosEmpleados() {
                         displayType={'text'}
                         thousandSeparator=',' prefix={'$'}
                         decimalScale={2} fixedDecimalScale/></td>
+                        <td className='text-center'>
+                            <Link to={`/editar/${empleado.idEmpleado}`}
+                            className='btn btn-warning btn-sm me-3'>Editar</Link>
+
+                        </td>
                         </tr>
                         ))
                     }
