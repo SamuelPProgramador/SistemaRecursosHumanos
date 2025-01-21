@@ -19,6 +19,11 @@ export default function ListadosEmpleados() {
         console.log("Resultado cargar empleado");
         console.log(resultado.data);
         setEmpleados(resultado.data);
+    } 
+
+    const eliminarEmpleado = async (id)=>{
+        await axios.delete(`${urlBase}/${id}`);
+        cargarEmpleados();
     }
 
 
@@ -55,10 +60,15 @@ export default function ListadosEmpleados() {
                         displayType={'text'}
                         thousandSeparator=',' prefix={'$'}
                         decimalScale={2} fixedDecimalScale/></td>
-                        <td className='text-center'>
+
+                        <td >
                             <Link to={`/editar/${empleado.idEmpleado}`}
                             className='btn btn-warning btn-sm me-3'>Editar</Link>
-
+                            
+                            <button
+                            onClick={()=>eliminarEmpleado(empleado.idEmpleado)}
+                            className='btn btn-danger btn-sm'>Eliminar</button>
+                           
                         </td>
                         </tr>
                         ))
